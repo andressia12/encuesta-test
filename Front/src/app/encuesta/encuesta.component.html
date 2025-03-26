@@ -1,0 +1,50 @@
+<h2>Encuesta de Viajes</h2>
+<form (submit)="guardarEncuesta($event)">
+
+  <label>1. ¿Cuál es su país de residencia permanente?</label>
+  <input type="text" id="pais" [(ngModel)]="pais" name="pais" required />
+
+
+  <label>2. ¿Cuál es su nacionalidad?</label>
+  <input type="text" id="nacionalidad" [(ngModel)]="nacionalidad" name="nacionalidad" required />
+
+
+  <label>3. Sexo:</label>
+  <select id="sexo" [(ngModel)]="sexo" name="sexo" required>
+    <option value="">Seleccione...</option>
+    <option value="Masculino">Masculino</option>
+    <option value="Femenino">Femenino</option>
+    <option value="Otro">Otro</option>
+  </select>
+
+  <label>Edad:</label>
+  <input type="number" id="edad" [(ngModel)]="edad" name="edad" required />
+
+  <label>4. ¿Con quién viaja?</label>
+  <select id="viajaCon" [(ngModel)]="viajaCon" name="viajaCon" required (change)="validarPregunta4()">
+    <option value="">Seleccione...</option>
+    <option value="Solo">Solo</option>
+    <option value="Amigos">Amigos</option>
+    <option value="Familia">Familia</option>
+    <option value="Compañeros de trabajo">Compañeros de trabajo</option>
+    <option value="Otro">Otro</option>
+  </select>
+
+  <div *ngIf="viajaCon === 'Otro'">
+    <label>¿Cuál?</label>
+    <input type="text" id="otroViaje" [(ngModel)]="otroViaje" name="otroViaje" />
+  </div>
+
+
+  <div *ngIf="viajaCon !== 'Solo'">
+    <label>5. ¿Incluyéndolo a usted, con cuántas personas viaja?</label>
+    <input type="number" id="numPersonas" [(ngModel)]="numPersonas" name="numPersonas" required />
+  </div>
+
+  <button type="submit">Enviar Encuesta</button>
+</form>
+
+<p id="error-msg" style="color:red;"></p>
+
+<script src="../../assets/js/validaciones.js"></script>
+
