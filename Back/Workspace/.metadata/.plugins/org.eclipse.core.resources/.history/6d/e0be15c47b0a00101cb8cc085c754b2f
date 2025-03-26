@@ -1,0 +1,5 @@
+package com.encuesta.test.entidades;
+
+public class Usuario {
+
+}

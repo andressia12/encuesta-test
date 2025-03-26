@@ -1,0 +1,5 @@
+package com.encuesta.test.utils;
+
+public class PasswordUtils {
+
+}

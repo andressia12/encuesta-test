@@ -1,0 +1,5 @@
+package com.encuesta.test.repositorios;
+
+public class UsuarioRepository {
+
+}
